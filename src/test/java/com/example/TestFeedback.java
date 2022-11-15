@@ -129,6 +129,4 @@ public class TestFeedback {
         result = game.feedback(code);
         Assertions.assertArrayEquals(new List[]{expected}, new List[]{result});
     }
-
-
 }

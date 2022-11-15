@@ -9,6 +9,7 @@ import com.example.demo.api.domain.Exceptions.GameAlreadyExistsException;
 import com.example.demo.api.domain.Guess;
 import com.example.demo.api.repositories.GameRepository;
 import com.example.demo.api.repositories.GuessRepository;
+import com.example.demo.api.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,15 +22,12 @@ import java.util.Optional;
 @RestController
 public class GameController {
     @Autowired
-    private GameRepository gameRepository;
+    private GameService gameService;
 
     @PostMapping("/api/games")
     public ResponseEntity<GameInput> createGame(@Valid @RequestBody GameInput gameInput) {
         try {
-            if (gameRepository.existsById(gameInput.getId()))
-                throw new GameAlreadyExistsException("Artist already exists.");
-            Game game = gameInput.toDomain();
-            gameRepository.save(game);
+            gameService.addGame(gameInput);
         } catch (GameAlreadyExistsException e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.ALREADY_REPORTED).build();
@@ -42,8 +40,7 @@ public class GameController {
     @GetMapping("/api/games")
     public ResponseEntity<List<Game>> allGames() {
         try {
-            List<Game> listAllGames = gameRepository.findAll();
-            if (listAllGames.isEmpty()) throw new GamesDoNotExistException("Games don´t exist.");
+            List<Game> listAllGames = gameService.allGames();
             return ResponseEntity.ok(listAllGames);
         } catch (GamesDoNotExistException e) {
             e.printStackTrace();
@@ -56,8 +53,7 @@ public class GameController {
     @GetMapping("/api/games/{id}")
     public ResponseEntity<Optional<Game>> getGameById(@PathVariable int id) {
         try {
-            Optional<Game> game = gameRepository.findById(id);
-            if (!game.isPresent()) throw new GameDoesNotExistException("Game doesn´t exist.");
+            Optional<Game> game = gameService.getGameById(id);
             return ResponseEntity.ok(game);
         } catch (GameDoesNotExistException e) {
             e.printStackTrace();

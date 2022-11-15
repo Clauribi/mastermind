@@ -121,10 +121,9 @@ public class Game {
 
         int blackPegs = 0;
         int whitePegs = 0;
-        List<Integer> result = new ArrayList<>();
 
         for (int i = 0; i < code.size(); i++) {
-            if (code.get(i) == this.secretCode.get(i)) {
+            if (code.get(i).equals(this.secretCode.get(i))) {
                 blackPegs += 1;
             } else {
                 for (int j = 0; j < this.secretCode.size(); j++) {
@@ -135,10 +134,10 @@ public class Game {
                 }
             }
         }
+        List<Integer> result = new ArrayList<>();
         result.add(0, blackPegs);
         result.add(1, whitePegs);
         return result;
-
     }
 
     public void addGuess(List<String> code) throws GameAlreadyFinishedException {
