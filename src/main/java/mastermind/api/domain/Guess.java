@@ -1,25 +1,29 @@
-package com.example.demo.api.controllers.dto;
+package mastermind.api.domain;
 
-import com.example.demo.api.domain.Guess;
-
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.List;
 
-public class GuessInput {
+@Entity(name="guesses")
+public class Guess {
+    @Id
     private int idGuess;
     private List<String> code;
     private int blackPegs;
     private int whitePegs;
-    private int idGame;
 
-    public GuessInput() {
+
+    public Guess() {
     }
 
-    public GuessInput(int idGuess, List<String> code, int blackPegs, int whitePegs, int idGame) {
+    public Guess(List<String> code, List<Integer> feedback) {
+    }
+
+    public Guess(int idGuess, List<String> code, int blackPegs, int whitePegs) {
         this.idGuess = idGuess;
         this.code = code;
         this.blackPegs = blackPegs;
         this.whitePegs = whitePegs;
-        this.idGame = idGame;
     }
 
     public int getIdGuess() {
@@ -54,15 +58,4 @@ public class GuessInput {
         this.whitePegs = whitePegs;
     }
 
-    public int getIdGame() {
-        return idGame;
-    }
-
-    public void setIdGame(int idGame) {
-        this.idGame = idGame;
-    }
-
-    public Guess toDomain() {
-        return new Guess(this.idGuess, this.code, this.blackPegs, this.whitePegs);
-    }
 }

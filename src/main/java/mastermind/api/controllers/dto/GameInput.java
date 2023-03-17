@@ -1,7 +1,7 @@
-package com.example.demo.api.controllers.dto;
+package mastermind.api.controllers.dto;
 
-import com.example.demo.api.domain.Game;
-import com.example.demo.api.domain.GameStatus;
+import mastermind.api.domain.Game;
+import mastermind.api.domain.GameStatus;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

@@ -1,6 +1,6 @@
-package com.example.demo.api.domain;
+package mastermind.api.domain;
 
-import com.example.demo.api.domain.Exceptions.GameAlreadyFinishedException;
+import mastermind.api.domain.Exceptions.GameAlreadyFinishedException;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

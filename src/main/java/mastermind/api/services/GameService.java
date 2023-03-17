@@ -1,11 +1,11 @@
-package com.example.demo.api.services;
+package mastermind.api.services;
 
-import com.example.demo.api.controllers.dto.GameInput;
-import com.example.demo.api.domain.Exceptions.GameAlreadyExistsException;
-import com.example.demo.api.domain.Exceptions.GameDoesNotExistException;
-import com.example.demo.api.domain.Exceptions.GamesDoNotExistException;
-import com.example.demo.api.domain.Game;
-import com.example.demo.api.repositories.GameRepository;
+import mastermind.api.controllers.dto.GameInput;
+import mastermind.api.domain.Exceptions.GameAlreadyExistsException;
+import mastermind.api.domain.Exceptions.GameDoesNotExistException;
+import mastermind.api.domain.Exceptions.GamesDoNotExistException;
+import mastermind.api.domain.Game;
+import mastermind.api.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

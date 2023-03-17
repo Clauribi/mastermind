@@ -1,6 +1,6 @@
-package com.example;
+package mastermind.api;
 
-import com.example.demo.api.domain.Game;
+import mastermind.api.domain.Game;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

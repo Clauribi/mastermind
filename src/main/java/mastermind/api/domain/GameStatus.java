@@ -1,4 +1,4 @@
-package com.example.demo.api.domain;
+package mastermind.api.domain;
 
 public enum GameStatus {
     running, won, lost

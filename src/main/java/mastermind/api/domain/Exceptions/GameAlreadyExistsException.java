@@ -1,4 +1,4 @@
-package com.example.demo.api.domain.Exceptions;
+package mastermind.api.domain.Exceptions;
 
 public class GameAlreadyExistsException extends Exception {
     public GameAlreadyExistsException(String message) {

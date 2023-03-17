@@ -1,6 +1,6 @@
-package com.example.demo.api.repositories;
+package mastermind.api.repositories;
 
-import com.example.demo.api.domain.Game;
+import mastermind.api.domain.Game;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

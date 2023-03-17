@@ -1,4 +1,4 @@
-package com.example.persistencia;
+package mastermind.api.persistencia;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
